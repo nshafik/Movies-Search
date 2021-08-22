@@ -2,7 +2,7 @@ import { AppBar, Button, InputBase, makeStyles, Tab, Tabs } from "@material-ui/c
 
 import { useState } from "react"
 import { getData, searchData } from "../services/api";
-import AllMovies from "./AllMovies"
+import AllMovies from "./AllMovies";
 import Pagination from "./pagination";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,36 +37,46 @@ const MoviesPage = () => {
     const onButtonClick = (e) => {
         console.log(searchTxt)
         searchData(searchTxt,1).then(results => {
-            //setSearchMovies(results);
-            console.log(results);
+            setSearchMovies(results);
+          //console.log(results);
         })
     }
     return (
 
         <>
-        
-        <AppBar position="static">
-            <Tabs value={tab} onChange={handleChange} aria-label="simple tabs example">
-                <Tab label="Explore movies" tabIndex={0}/>
-                <Tab label="Favourites"  tabIndex={1}/>
-            </Tabs>
-        </AppBar>
+            <AppBar position="static">
+                <Tabs value={tab} onChange={handleChange} aria-label="simple tabs example">
+                    <Tab label="Explore movies" tabIndex={0} />
+                    <Tab label="Favourites" tabIndex={1} />
+                </Tabs>
+                <InputBase
+                    classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                    }}
+                    onChange={(event) => setSearchTxt(event.target.value)}
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                />
+                <Button variant="contained" color="primary" onClick={onButtonClick}>
+                    Search
+                </Button>
+            </AppBar>
 
 
-        {tab === 0 && 
-        (
-            <div position= "center">
-            <AllMovies/>
-            <Pagination class= "center"/>
-            </div>
-          
-        )}
+            {tab === 0 &&
+                (
+                    <div position= "center">
+                    <AllMovies/>
+                    <Pagination class= "center"/>
+                    </div>
+                )}
 
-        {tab === 1 && (
-            <h1>
-                Favourites
-            </h1>
-        )}
+            {tab === 1 && (
+                <h1>
+                    Favourites
+                </h1>
+            )}
 
         </>
     )

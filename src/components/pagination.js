@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 
-export default function PaginationLink() {
 
+export default function PaginationLink() {
+  
   return (
     <MemoryRouter class="center" initialEntries={['/inbox']} initialIndex={0} >
       <Route>

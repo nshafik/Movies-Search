@@ -1,5 +1,4 @@
 
-
 function isInLocalStorage(key) {
     return localStorage.getItem(key) !== null;
 }

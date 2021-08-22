@@ -27,4 +27,3 @@ export function updateMovieFav(movies, movieId, updatedProps) {
     }
     return moviesUpd;
 }
-

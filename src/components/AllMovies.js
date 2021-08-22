@@ -14,7 +14,6 @@ import ShareIcon from '@material-ui/icons/Share';
 import { red } from '@material-ui/core/colors';
 import { addToFavArray, removeFromFavAray } from "../services/localStorageHelper";
 
-import ShareButton from "./ShareButton";
 
 
 const useStyles = makeStyles((theme) => ({
