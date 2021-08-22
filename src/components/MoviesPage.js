@@ -2,6 +2,7 @@ import { AppBar, Tab, Tabs } from "@material-ui/core"
 
 import { useState } from "react"
 import AllMovies from "./AllMovies"
+import Pagination from "./pagination";
 
 const MoviesPage = () => {
     const [tab, setTab] = useState(0)
@@ -22,7 +23,11 @@ const MoviesPage = () => {
 
         {tab === 0 && 
         (
+            <div position= "center">
             <AllMovies/>
+            <Pagination class= "center"/>
+            </div>
+          
         )}
 
         {tab === 1 && (

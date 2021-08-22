@@ -27,6 +27,16 @@
 .App-link {
   color: #61dafb;
 }
+.MuiPagination-ul {
+  margin: 0;
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+
+}
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +46,5 @@
     transform: rotate(360deg);
   }
 }
+
+

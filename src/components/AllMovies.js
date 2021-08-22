@@ -10,9 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
-import ShareIcon from '@material-ui/icons/Share';
 import { red } from '@material-ui/core/colors';
-
 import ShareButton from "./ShareButton";
 
 
@@ -64,7 +62,6 @@ const AllMovies = () => {
                      {m.name}
                    </Typography>
                  </CardContent>
-
                  <CardActions disableSpacing>
                    <IconButton aria-label="add to favorites">
                      <FavoriteIcon />
@@ -74,9 +71,10 @@ const AllMovies = () => {
                    </IconButton>
                  </CardActions>
                </Card>
-            )) }
+
+            )) 
+          }
         </Container>
-   
     )
 }
 
