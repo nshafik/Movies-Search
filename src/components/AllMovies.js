@@ -42,7 +42,7 @@ const AllMovies = () => {
     const [movies, setMovies] = useState([])
     const classes = useStyles();
     useEffect(() => {
-        setMovies(getData())
+        // setMovies(getData())
         // getData()
         // .then(movies => setMovies(movies))
     }, [])
