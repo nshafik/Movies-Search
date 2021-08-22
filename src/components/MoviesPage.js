@@ -1,16 +1,48 @@
-import { AppBar, Tab, Tabs } from "@material-ui/core"
+import { AppBar, Button, InputBase, makeStyles, Tab, Tabs } from "@material-ui/core"
 
 import { useState } from "react"
+import { getData, searchData } from "../services/api";
 import AllMovies from "./AllMovies"
 import Pagination from "./pagination";
 
+const useStyles = makeStyles((theme) => ({
+    inputRoot: {
+        color: 'inherit',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(73)}px)`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '12ch',
+            '&:focus': {
+                width: '20ch',
+            },
+        },
+    },
+}));
+
 const MoviesPage = () => {
-    const [tab, setTab] = useState(0)
-    const handleChange=(e, value)=>{
+    const classes = useStyles();
+    const [tab, setTab] = useState(0);
+    const [searchTxt, setSearchTxt] = useState("");
+    const [searchMovies,setSearchMovies] = useState([]);
+
+    const handleChange = (e, value) => {
         setTab(value)
     }
+
+    const onButtonClick = (e) => {
+        console.log(searchTxt)
+        searchData(searchTxt,1).then(results => {
+            //setSearchMovies(results);
+            console.log(results);
+        })
+    }
     return (
-        
+
         <>
         
         <AppBar position="static">
