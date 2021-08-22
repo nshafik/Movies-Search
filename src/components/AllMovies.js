@@ -1,6 +1,6 @@
 import { Container } from "@material-ui/core"
 import { useEffect, useState } from "react"
-import { getData, updateMovieFav } from "../services/api"
+import { searchData, updateMovieFav } from "../services/api"
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import Card from '@material-ui/core/Card';
@@ -13,6 +13,8 @@ import IconButton from '@material-ui/core/IconButton';
 import ShareIcon from '@material-ui/icons/Share';
 import { red } from '@material-ui/core/colors';
 import { addToFavArray, removeFromFavAray } from "../services/localStorageHelper";
+
+import ShareButton from "./ShareButton";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,39 +46,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AllMovies = () => {
-
   const handleFavouriteTap = (movie) => {
-    // let isFav = false;
-    // if (movies[movie.id].isFav) {
-    //   isFav = true;
-    // }
-
-    // isFav = !isFav;
     const isFav = !movies[movie.id].isFav;
-    // localStorage.setItem(movie.id, isFav);
     if (isFav) {
       addToFavArray(movie.id);
     }
     else {
       removeFromFavAray(movie.id);
     }
-
-    // console.log(movie)
-    // console.log(`setting is fav of ${movie.id} to ${isFav}`)
     setMovies(prevMovies => updateMovieFav(prevMovies, movie.id, { isFav: isFav }));
-    // setMovies(prevMovies => prevMovies[movie.id]: {})
   };
 
   const [pageNum, setPageNum] = useState(0)
   const [movies, setMovies] = useState({})
   const classes = useStyles();
   useEffect(() => {
-    setMovies(getData())
+    // setMovies(getData())
     // getData()
     // .then(movies => setMovies(movies))
   }, [])
 
-  // localStorage.clear();
   return (
     <Container>
       {Object.values(movies).map(m => (
