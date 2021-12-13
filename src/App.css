@@ -47,4 +47,18 @@
   }
 }
 
+BottomNavigation{
+  bottom: 0;
 
+}
+.MuiPaper-elevation1 {
+  width: 25%;
+  padding: auto;
+  margin: 2%;
+}
+.trending{
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -1,7 +1,8 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Welcome from './components/Welcome';
-import MoviesPage from './components/MoviesPage'
+import Welcome from './Pages/Welcome';
+import MoviesPage from './Pages/MoviesPage';
+
 function App() {
   return (
     <div className="App">
